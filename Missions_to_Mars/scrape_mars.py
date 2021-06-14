@@ -10,7 +10,7 @@ import pandas as pd
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager 
 import time
-
+from pprint import pprint
 def scrape():
     ###################################
     # # Nasa Mars News
@@ -45,10 +45,12 @@ def scrape():
     # use soup object to find specific image, save the image's url
     image_result = soup.find_all("img", {"class":"fancybox-image"})
     
-    #print(f'\n\n\n{image_result[0]['src']}\n\n\n')
     image = image_result[0]["src"]
-    # create full url and print to verify
+    # create full url
     surface_url = url + image
+    
+    # quit the browser
+    browser.quit()
 
     ###################################
     # # Mars Facts
@@ -99,7 +101,8 @@ def scrape():
 
         # go back to original webpage
         browser.links.find_by_partial_text("Back").click()
-        
+    
+    browser.quit()
 
     ###################################
     # create final dictionary to return
@@ -112,6 +115,8 @@ def scrape():
         "fact_table" : html_table,
         "hemisphere_data" : hemi_entries
     }
-
+    
     return(mars_dictionary)
-
+#info = scrape()
+#print(f'type of scrape is{type(info)}')
+#pprint(info)
