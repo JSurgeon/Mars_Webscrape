@@ -115,4 +115,3 @@ def scrape():
 
     return(mars_dictionary)
 
-print(scrape())
