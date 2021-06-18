@@ -33,12 +33,15 @@
       </div>
     </div>
     
-    <!--Surface Data-->
     <div class="row">
+
+      <!--Surface Data-->
       <div class="col-md-6">
         <h2><strong>Featured Mars Image</strong></h2>
         <img src="{{mars_info.surface_url}}" style="width:100%;" alt="{{mars_info.surface_url}}">
       </div>
+      
+      <!--Fact Table-->
       <div class="col-md-6">
         <h2><strong>Mars Fact Table</strong></h2>
         <h3>{{mars_info.fact_table|safe}}</h3>
@@ -48,7 +51,7 @@
 
 
 
-    <!--Fact Table-->
+ 
     
     
 
@@ -62,8 +65,6 @@
           <h2><strong>Cerberus Hemisphere Enhanced</strong></h2>
         </span>
       </div>
-   
-
       <div class="col-md-3" style="margin-bottom: 10px;">
         <img src="{{mars_info.schiap_img}}" style="width:100%;" alt="{{mars_info.schiap_title}}">
         <h2><strong>Schiaparelli Hemisphere Enhanced</strong></h2>
