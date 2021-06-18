@@ -14,7 +14,9 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def index():
+    # grab info scraped into Mongodb
     db_info = mongo.db.mars_info.find_one()
+    # return by rendering index.html and assigning variable for use in index.html
     return render_template("index.html", mars_info = db_info)
 
 
@@ -26,10 +28,12 @@ def scraper():
     # store scrape() return value (is a dictionary)
     info = scrape()
 
+    # create variable to connect to mongo DB, insert scraped info
     mars_collection = mongo.db.mars_info
     mars_collection.drop()
     mars_collection.update({},info,upsert=True)
 
+    # return by redirecting to index
     return redirect('/', code=302)
 
 if __name__ == "__main__":
