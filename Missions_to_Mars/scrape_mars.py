@@ -134,6 +134,3 @@ def scrape():
         }
     
     return(mars_dictionary)
-#info = scrape()
-#print(f'type of scrape is{type(info)}')
-#pprint(info)
