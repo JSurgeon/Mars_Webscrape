@@ -12,13 +12,17 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 from pprint import pprint
 def scrape():
+    "'This function scrapes 4 different sites using splinter and beautiful soup, mainly'"
+    "'Returns a dictionary'"
     ###################################
     # # Nasa Mars News
     ###################################
 
-    # assign title and paragraph text to variables
+    # create flag for use in while loop- necessary because visitting url 
+            # doesn't always seem to populate information
     flag = 0
     while flag == 0:
+        # try to visit url and grab relevant info via BeautifulSoup
         try:
             url = "https://redplanetscience.com"
             executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -30,10 +34,15 @@ def scrape():
             news_title = titles[0].text
             paragraphs = soup.find_all("div", class_="article_teaser_body")
             news_p = paragraphs[0].text
+
+            # if successful, set flag to 1 to leave while loop
             flag = 1
         except:
+            
+            # if unsuccessful, assign placeholder text to variables and leave flag set to 0
             news_title = "No title scraped, try again"
             news_p = "No paragraph scraped, try again"
+        # quit browswer when successful
         browser.quit()
     ###################################
     # # JPL Mars Space Images - Featured Image
@@ -133,4 +142,5 @@ def scrape():
         "valles_img" : hemi_entries[3]['img_url'],
         }
     
+    # return mars_dictionary
     return(mars_dictionary)
