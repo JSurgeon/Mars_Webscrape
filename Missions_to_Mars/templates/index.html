@@ -7,6 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    tr {text-align: center;}
+    th {text-align: center;}
+  </style>
 </head>
 
 <body>
@@ -19,27 +23,69 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">press to launch</a></p>
     </div>
 
-    <!-- Mars information -->
-    <div class="row" id="phone-listings">
+  <!-- Mars information -->
+    <!--News Title and Paragraph-->
+    <div class="row">
       <div class="col-md-12">
-        <h4 class="heading">{{mars_info.news_title}}</h4>
-        <h5 class="text-center">{{mars_info.news_paragraph}}</h5>
-    
+        <h2><strong>Latest Mars News</strong></h2>
+        <h3 class="heading"><strong>{{mars_info.news_title}}</strong></h4>
+        <p><strong>{{mars_info.news_paragraph}}</strong></p>
       </div>
-
-   <a href={{mars_info.hemisphere_data[0]["img_url"]}}>{{mars_info.hemisphere_data[0]["title"]}}</a>
+    </div>
+    
+    <!--Surface Data-->
+    <div class="row">
+      <div class="col-md-6">
+        <h2><strong>Featured Mars Image</strong></h2>
+        <img src="{{mars_info.surface_url}}" style="width:100%;" alt="{{mars_info.surface_url}}">
+      </div>
+      <div class="col-md-6">
+        <h2><strong>Mars Fact Table</strong></h2>
+        <h3>{{mars_info.fact_table|safe}}</h3>
+      </div>
     </div>
 
+
+
+
+    <!--Fact Table-->
+    
+    
+
+
+    <!--Hemisphere data-->
+    <div class="row">
+      <h1 style="text-align: center;"><strong>Mars Hemispheres</strong></h1>
+      <div class="col-md-3" style="margin-bottom: 10px;">
+        <span class="border">
+          <img src="{{mars_info.cerberus_img}}" style="width:100%;" alt="{{mars_info.cerberus_title}}">
+          <h2><strong>Cerberus Hemisphere Enhanced</strong></h2>
+        </span>
+      </div>
+   
+
+      <div class="col-md-3" style="margin-bottom: 10px;">
+        <img src="{{mars_info.schiap_img}}" style="width:100%;" alt="{{mars_info.schiap_title}}">
+        <h2><strong>Schiaparelli Hemisphere Enhanced</strong></h2>
+      </div>
+
+      <div class="col-md-3" style="margin-bottom: 10px;">
+        <img src="{{mars_info.syrtis_img}}" style="width:100%;" alt="{{mars_info.syrtis_title}}">
+        <h2><strong>Syrtis Major Hemisphere Enhanced</strong></h2>
+      </div>
+    
+      <div class="col-md-3" style="margin-bottom: 10px;">
+        <img src="{{mars_info.valles_img}}" style="width:100%;" alt="{{mars_info.valles_title}}">
+        <h2><strong>Valles Marineris Hemisphere Enhanced</strong></h2>
+      </div>
+    </div>
+
+
+
+
   </div>
+
 </body>
 
 </html>
 
-
-<!--mars_dictionary = {
-    "news_title": news_title,
-    "news_paragraph" : news_p,
-    "surface_url" : surface_url,
-    "fact_table" : html_table,
-    "hemisphere_data" : hemi_entries
-}-->

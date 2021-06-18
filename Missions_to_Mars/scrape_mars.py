@@ -16,15 +16,25 @@ def scrape():
     # # Nasa Mars News
     ###################################
 
-    # assign title and paragraph text to variables... manually?
-    news_title = "NASA Invites Students to Name Mars 2020 Rover"
-    news_p = "Through Nov. 1, K-12 students in the U.S. are encouraged to enter an essay contest to name NASA's next Mars rover."
-    #url = "https://redplanetscience.com"
-    #response = requests.get(url)
-    #soup = BeautifulSoup(response.text,"html.parser")
-    #soup
-    # how to retrieve dynamic html content using python
-
+    # assign title and paragraph text to variables
+    flag = 0
+    while flag == 0:
+        try:
+            url = "https://redplanetscience.com"
+            executable_path = {'executable_path': ChromeDriverManager().install()}
+            browser = Browser('chrome', **executable_path,headless=False)
+            browser.visit(url)
+            html = browser.html
+            soup = BeautifulSoup(html,"html.parser")
+            titles = soup.find_all("div", class_="content_title")
+            news_title = titles[0].text
+            paragraphs = soup.find_all("div", class_="article_teaser_body")
+            news_p = paragraphs[0].text
+            flag = 1
+        except:
+            news_title = "No title scraped, try again"
+            news_p = "No paragraph scraped, try again"
+        browser.quit()
     ###################################
     # # JPL Mars Space Images - Featured Image
     ###################################
@@ -67,7 +77,7 @@ def scrape():
     # reassign column names
     table_df.columns = ["attribute","value"]
     # set index of dataframe
-    table_df.set_index("attribute")
+    table_df = table_df.set_index("attribute")
 
     # convert dataframe to html table
     html_table = table_df.to_html()
@@ -92,9 +102,9 @@ def scrape():
         html = browser.html
         soup = BeautifulSoup(html,'html.parser')
         # find image url
-        dd = soup.find_all('dd')
-        a = dd[1].find('a')
-        image_url = url + a['href']
+        li = soup.find_all('li')
+        a= li[0].find('a')
+        image_url = url+a['href']
         
         # add image url to dictionary 'hemi_entries'
         hemi_entries.append({"title": hemi + " Hemisphere Enhanced", "img_url": image_url})
@@ -113,8 +123,15 @@ def scrape():
         "news_paragraph" : news_p,
         "surface_url" : surface_url,
         "fact_table" : html_table,
-        "hemisphere_data" : hemi_entries
-    }
+        "cerberus_title" : hemi_entries[0]['title'],
+        "cerberus_img" : hemi_entries[0]['img_url'],
+        "schiap_title" : hemi_entries[1]['title'],
+        "schiap_img" : hemi_entries[1]['img_url'],
+        "syrtis_title" : hemi_entries[2]['title'],
+        "syrtis_img" : hemi_entries[2]['img_url'],
+        "valles_title" : hemi_entries[3]['title'],
+        "valles_img" : hemi_entries[3]['img_url'],
+        }
     
     return(mars_dictionary)
 #info = scrape()
