@@ -24,5 +24,5 @@ To run this application locally, use the following steps:
 
 #
 Contact: jsurgeon29@gmail.com  
-LinkedIn: https://www.linkedin.com/in/jonathansurgeon/
+LinkedIn: https://www.linkedin.com/in/jonathansurgeon
 
