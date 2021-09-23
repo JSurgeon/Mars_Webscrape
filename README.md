@@ -23,6 +23,6 @@ To run this application locally, use the following steps:
 5. run flask app in command line with 'python app.py'
 
 #
-Contact: jsurgeon29@gmail.com
+Contact: jsurgeon29@gmail.com  
 LinkedIn: https://www.linkedin.com/in/jonathansurgeon/
 
