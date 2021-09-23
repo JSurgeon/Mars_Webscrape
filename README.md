@@ -19,5 +19,10 @@ To run this application locally, use the following steps:
 1. Clone this repo
 2. create and/or activate your virtual environment
 3. upgrade pip
-4. install dependencies
+4. install dependencies-- including MongoDB
 5. run flask app in command line with 'python app.py'
+
+#
+Contact: jsurgeon29@gmail.com
+LinkedIn: https://www.linkedin.com/in/jonathansurgeon/
+
