@@ -1,4 +1,4 @@
-# web-scraping-challenge
+# Mars Webscrape
 
   This repository contains work related to my first web-scraping project. The repo's Mission_to_Mars folder includes: a jupyter notebook, where the initial scraping was handled and tested; a python script (scrape_mars.py) which is the testing jupyter notebook converted into a python script and turned into a function called scrape(); a python script which runs the web-interface Flask module, and finally a "templates" folder which itself holds the html file used by Flask to render the final webpage.
 
