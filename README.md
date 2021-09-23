@@ -13,3 +13,11 @@
   
 ## Images Folder
   The images folder in this repo contains two pictures depicting the final webpage product. The entire page didnt fit on one screenshot, hence the two images. Again, more could be done to make the webpage more visually pleasing.
+
+## Quickstart
+To run this application locally, use the following steps:
+1. Clone this repo
+2. create and/or activate your virtual environment
+3. upgrade pip
+4. install dependencies
+5. run flask app in command line with 'python app.py'
