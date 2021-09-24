@@ -27,6 +27,7 @@ Contact: jsurgeon29@gmail.com
 LinkedIn: https://www.linkedin.com/in/jonathansurgeon
 
 # Final Product  
-![](Images/mars_webpage_top.png)
+![](Images/mars_webpage_top.png)  
+# 
 ![](Images/mars_webpage_bottom.png)
 
