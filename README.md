@@ -26,6 +26,7 @@ To run this application locally, use the following steps:
 Contact: jsurgeon29@gmail.com  
 LinkedIn: https://www.linkedin.com/in/jonathansurgeon
 
-# Final Product
-![](Images/mars_webpage_bottom.png)
+# Final Product  
 ![](Images/mars_webpage_top.png)
+![](Images/mars_webpage_bottom.png)
+
